@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('images/bg2.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="box"> 
+         <img src="images/cloud.gif" id="cloud">   
+         <script>
+             var elem = document.querySelector('#cloud');
+
+             elem.animate([
+                 {transform: 'translate(0,0)'},
+                 {transform: 'translate(500px,0)'},
+                 {transform: 'translate(0,0)'},
+             ],
+             {
+                 duration: 16000,
+                 iterations: Infinity
+             })
+         </script>
+
+
+        <img src="images/cloud.gif" id="cloud1">   
+        <script>
+            var elem = document.querySelector('#cloud1');
+
+            var animatedElem = elem.animate([
+                {transform: 'translate(0,20px)'},
+                {transform: 'translate(400px,80px)'},
+                {transform: 'translate(800px,50px)'},
+                {transform: 'translate(400px,80px)'},
+                {transform: 'translate(0,20px)'}
+            ],
+            {
+                duration: 32000,
+                iterations: Infinity
+            })
+
+            document.addEventListener("mousedown", () => {
+                animatedElem.pause(); 
+            })
+
+            document.addEventListener("mouseup", () => {
+                animatedElem.play();     
+            })
+        </script>
+
+
+    </div>
+
+
+</body>
+</html>   
+
+

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Application</title>
+    <link rel="stylesheet" href="main.css" /> 
+    <style>
+    </style>
+
+</head>
+<body>
+
+    <div id="box"> 
+        <div id = "clouds"> 
+            <div id = "cloud">
+                <img src="images/cloud.gif"> 
+            </div>
+             
+            <div id = "cloud1"> 
+                <img src="images/cloud.gif" id="cloud1">    
+            </div>
+         
+        </div>
+  
+
+        
+
+        <div id = "deers"> 
+            <img src="images/deerrunning.gif" id="deer1" /> 
+
+            <img src="images/deerrunning.gif" id="deer2"/> 
+  
+            <img src="images/deerrunning.gif" id="deer3" /> 
+ 
+            <img src="images/deerrunning.gif" id="deer4"/> 
+         </div>  
+
+         <div id="deer"> 
+                <img src="images/deer.gif" /> 
+        </div>        
+        <script>
+
+// deer1 animation 
+
+        var sceneryFrames =   [
+        { transform: 'translateX(-100%)' },
+        { transform: 'translateX(100%)' }   
+        ];
+
+        var sceneryTiming = {
+        duration: 36000,
+        iterations: Infinity
+        };
+
+        var background = document.getElementById('deers');
+
+        var backgroundMovement = background.animate(sceneryFrames,sceneryTiming);
+
+        backgroundMovement.currentTime = backgroundMovement.effect.getComputedTiming().duration / 4; 
+
+        setInterval( function(){
+            if ( backgroundMovement.playbackRate > .4 ) {
+                backgroundMovement.playbackRate *= .9 
+            }
+        }, 3000)
+
+        var flyFaster = function () {
+            backgroundMovement.playbackRate += 1.1; 
+        }
+
+        document.addEventListener("click",flyFaster);
+
+// cloud anmation 
+var sceneryFrames =   [
+        { transform: 'translateX(500%)' },
+        { transform: 'translateX(-100%)' }   
+        ];
+
+        var sceneryTiming = {
+        duration: 36000,
+        iterations: Infinity
+        };
+
+        var abackground = document.getElementById('cloud');
+
+        var abackgroundMovement = abackground.animate(sceneryFrames,sceneryTiming);
+
+        abackgroundMovement.currentTime = abackgroundMovement.effect.getComputedTiming().duration / 2; 
+
+
+
+        var cloudflyFaster = function () {
+            backgroundMovement.playbackRate += 1.1; 
+        }
+
+        document.addEventListener("click",cloudflyFaster);       
+        </script>
+
+
+
+
+
+    
+
+
+
+</body>
+</html>   
+
+

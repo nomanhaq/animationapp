@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('images/land.jpeg');
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="box"> 
+         <img src="images/cloud.gif" id="cloud">   
+         <script>
+             var elem = document.querySelector('#cloud');
+
+             elem.animate([
+                { transform: 'translateX(-50%)' },
+                { transform: 'translateX(550%)' }
+             ],
+             {
+                 duration: 8000,
+                 iterations: Infinity
+             })
+         </script>
+
+
+        <img src="images/cloud.gif" id="cloud1">   
+        <script>
+            var elem = document.querySelector('#cloud1');
+
+            var animation = elem.animate([
+                {transform: 'translate(0,20px)'},
+                {transform: 'translate(500px,80px)'},
+                {transform: 'translate(800px,50px)'},
+                {transform: 'translate(500px,80px)'},
+                {transform: 'translate(0,20px)'}
+            ],
+            {
+                duration: 32000,
+                iterations: Infinity
+            })
+            document.write("<br>"); document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");
+            document.write("<br>"); document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");
+            document.write("<br>"); document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");
+            document.write("<br>"); document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");
+            document.write("<br>"); document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");document.write("<br>");
+            var actions = {
+                play: function() { animation.play(); },
+                reverse: function() { animation.reverse(); },
+                pause: function() { animation.pause(); },
+                "speed up": function() { animation.playbackRate += 0.25; },
+                "slow down": function() { animation.playbackRate -= 0.25; },
+                finish: function() { animation.finish(); },
+                cancel: function() { animation.cancel(); },
+                };
+
+                for (var action in actions) {
+                    (function(action) {
+                        var button = document.createElement('button');
+                        button.textContent = action;
+                        button.addEventListener('click', function() {
+                        actions[action]();
+                        });
+                        document.body.appendChild(button);
+                    })(action);
+                    }
+
+                    function formatTime(time) {
+                    return (time === null) ? null : parseInt(time);
+                    }
+
+                    function showAnimationState() {
+                    animationState.textContent = '' +
+                        'playState: ' + animation.playState + '\n' +
+                        'currentTime: ' + formatTime(animation.currentTime) + '\n' +
+                        'startTime: ' + formatTime(animation.startTime) + '\n' +
+                        'playbackRate: ' + animation.playbackRate;
+                    requestAnimationFrame(showAnimationState);
+                    }
+                    showAnimationState();
+
+
+        </script>
+
+
+    </div>
+
+
+</body>
+</html>   
+
+

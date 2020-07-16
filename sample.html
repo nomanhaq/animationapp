@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Application</title>
+    <link rel="stylesheet" href="main.css" /> 
+    <style>
+    </style>
+
+</head>
+<body>
+
+    <div id="background"> 
+        <div id= "background1"> 
+            <img src="images/cloud.gif" id="cloud">   
+            <img src="images/cloud.gif" id="cloud1">  
+            <img src="images/deer.gif" /> 
+        </div>
+ 
+    
+        <div id="deers"> 
+            <img src="images/deerrunning.gif" id="deer1" /> 
+
+            <img src="images/deerrunning.gif" id="deer2"/> 
+  
+            <img src="images/deerrunning.gif" id="deer3" /> 
+ 
+            <img src="images/deerrunning.gif" id="deer4"/>             
+        </div>
+        <script>
+
+        
+// deer1 animation 
+
+
+var sceneryFrames =   [
+  { transform: 'translateX(-100%)' },
+  { transform: 'translateX(100%)' }   
+];
+
+var sceneryTiming = {
+  duration: 36000,
+  iterations: Infinity
+};
+
+var background = document.getElementById('deers');
+
+var backgroundMovement = background.animate(sceneryFrames,sceneryTiming);
+
+backgroundMovement.currentTime = backgroundMovement.effect.getComputedTiming().duration / 2; 
+
+var flyFaster = function () {
+    backgroundMovement.playbackRate += 1.1; 
+}
+
+document.addEventListener("click",flyFaster);
+
+        </script>
+
+
+
+
+
+
+
+
+</body>
+</html>   
+
+
